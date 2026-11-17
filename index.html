@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px Helvetica; color: #000000}
+    span.s1 {color: #000000}
+    span.s2 {font: 12.0px Helvetica; color: #000000}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Mindscape Parenting | Journal &amp; Neuroscience Hub&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #F8FAFC; color: #1E293B; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hide { display: none !important; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-slate-50 min-h-screen flex flex-col max-w-md mx-auto shadow-xl border-x border-slate-200"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- CONFIGURATION &amp; SUPABASE INITIALIZATION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ==========================================</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// PASTE YOUR ACTUAL KEYS BELOW:</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ==========================================</p>
+<p class="p3"><span class="s1"><span class="Apple-converted-space">    </span>const SUPABASE_URL = '</span>https://mavqzlzrllmyofaxifqh.supabase.co<span class="s1">';</span></p>
+<p class="p4"><span class="s2"><span class="Apple-converted-space">    </span>const SUPABASE_ANON_KEY = '</span>pk_test_51UciAMDKiVn6E5qg2137Ch4mHMLETc1LC4OSu8BeOGWPrHDc6Hr9oupLvMqUsz6zkTdTUnhMB0yf7jEKGSUAENsG008PKVow1r</p>
+<p class="p1">';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const STRIPE_CHECKOUT_URL = 'https://buy.stripe.com/test_bJe3cv9I91JpcGFgVIfYY00';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// ==========================================</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let supabaseClient = null;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (SUPABASE_URL !== 'PASTE_YOUR_SUPABASE_URL_HERE' &amp;&amp; window.supabase) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- HEADER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="bg-white border-b border-slate-100 px-6 py-4 sticky top-0 z-20 flex justify-between items-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1 class="font-bold text-lg text-slate-800 leading-tight"&gt;Mindscape Parenting&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-xs text-slate-500"&gt;Neuroscience, Art &amp; Conscious Growth&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="openSubscription()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm transition"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>Unlock Full Access</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MAIN APP CONTAINER --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="flex-1 pb-24 overflow-y-auto"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- TAB 1: JOURNAL --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="tab-journal" class="p-6 space-y-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-indigo-50 border border-indigo-100 p-4 rounded-2xl"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-bold text-indigo-900 text-sm"&gt;Parent Daily Journal&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-indigo-700 mt-1"&gt;Reflect on today's rhythms, screen time, and emotional touchpoints.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;form id="journal-form" onsubmit="saveJournal(event)" class="space-y-4 bg-white p-5 rounded-2xl border border-slate-100 shadow-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Your Email (for syncing records)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="email" id="j-email" required placeholder="parent@example.com" class="w-full text-sm p-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-2 gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Date&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="date" id="j-date" required class="w-full text-sm p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Child's Mood Today&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;select id="j-mood" class="w-full text-sm p-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;☀️ Joyful / Connected&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;🌧️ Meltdown Prone&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;🔋 Fatigued / Overstimulated&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;option&gt;🌪️ High Energy / Testing Limits&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-2 gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Screen Time (Hours)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="j-screen" placeholder="e.g. 45 mins" class="w-full text-sm p-2.5 rounded-xl border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Playtime (Hours)&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="j-play" placeholder="e.g. 2.5 hours" class="w-full text-sm p-2.5 rounded-xl border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Child's Main Interest Today&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;input type="text" id="j-interest" placeholder="What engaged them the longest? (e.g. Lego building, water play)" class="w-full text-sm p-2.5 rounded-xl border border-slate-200"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;Tantrum / Challenge Log&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;textarea id="j-tantrum" rows="2" placeholder="What triggered it? How did it manifest?" class="w-full text-sm p-2.5 rounded-xl border border-slate-200"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;label class="block text-xs font-semibold text-slate-600 mb-1"&gt;How was Repair Achieved?&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;textarea id="j-repair" rows="2" placeholder="How did you reconnect afterward?" class="w-full text-sm p-2.5 rounded-xl border border-slate-200"&gt;&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="submit" class="w-full bg-slate-900 text-white font-medium py-3 rounded-xl hover:bg-slate-800 transition shadow-md"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Save Today's Report</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/form&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- TAB 2: LECTURES --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="tab-lectures" class="p-6 space-y-4 hide"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-bold text-slate-800 text-lg"&gt;Neuroscience &amp; Development&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-500"&gt;Expert insights spanning ages 3 to 12.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">      </span></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"&gt;Ages 3–6 • Brain Architecture&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-slate-800"&gt;The Architecture of a Meltdown: Why Words Fail&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-600 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>When a child's emotional brain (the amygdala) is fully flooded with cortisol and adrenaline, the thinking brain (prefrontal cortex) goes entirely offline. Lecturing or reasoning in this state is neurologically ineffective because speech processing diminishes. Co-regulation must always precede teaching.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bg-amber-50 text-amber-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"&gt;Ages 7–12 • Executive Function&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-slate-800"&gt;Holding Firm &amp; Respectful Boundaries&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-600 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Older children test boundaries to map their autonomy. Respectful parenting is not permissive; it means holding an immovable, calm boundary while validating their emotional frustration. You are teaching their nervous system that safe limits exist.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- TAB 3: PLAY LAB --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="tab-play" class="p-6 space-y-4 hide"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-bold text-slate-800 text-lg"&gt;Art &amp; Play Lab&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-500"&gt;Creative interventions rooted in environmental psychology.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"&gt;Somatic Art Activity&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-slate-800"&gt;The "Emotion Volcano" Painting&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-600 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Give kids large butcher paper and washable tempera paints. Let them use vigorous, sweeping strokes with heavy sponges to externalize big surges of anger or energy onto the page, translating internal chaos into visible, manageable form.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- TAB 4: PARENT RESET TOOLS --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="tab-reset" class="p-6 space-y-4 hide"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-bold text-slate-800 text-lg"&gt;Parent Reset Tools&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-500"&gt;60-second nervous system regulators for adults.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bg-rose-50 text-rose-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"&gt;60-Second Somatic Anchor&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-slate-800"&gt;The Physiological Sigh&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-600 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Take two quick inhales through the nose (one deep breath, followed immediately by a sharp top-off inhale), then a long, slow exhale through the mouth. Repeat 3 times to instantly trigger parasympathetic nervous system recovery.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- TAB 5: PARTNER CONNECTION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="tab-partner" class="p-6 space-y-4 hide"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="font-bold text-slate-800 text-lg"&gt;Partner Connection&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-500"&gt;Indirect couples therapy &amp; micro-rituals for parents.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm space-y-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="bg-purple-50 text-purple-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider"&gt;Micro-Ritual&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-slate-800"&gt;The 6-Second Daily Reconnection&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs text-slate-600 leading-relaxed"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Dr. John Gottman's research shows that a 6-second hug signals biological safety to the nervous system, lowering cortisol for both partners amidst the daily demands of parenting.<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- BOTTOM NAVIGATION --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav class="bg-white border-t border-slate-100 fixed bottom-0 max-w-md w-full grid grid-cols-5 py-2 text-center text-[10px] font-semibold text-slate-400 z-20"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="switchTab('journal')" id="nav-journal" class="flex flex-col items-center text-indigo-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Journal&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="switchTab('lectures')" id="nav-lectures" class="flex flex-col items-center hover:text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Lectures&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="switchTab('play')" id="nav-play" class="flex flex-col items-center hover:text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Play Lab&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="switchTab('reset')" id="nav-reset" class="flex flex-col items-center hover:text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Reset&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="switchTab('partner')" id="nav-partner" class="flex flex-col items-center hover:text-slate-600"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span&gt;Partner&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- JAVASCRIPT LOGIC --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>function switchTab(tabName) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>['journal', 'lectures', 'play', 'reset', 'partner'].forEach(t =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(`tab-${t}`).classList.add('hide');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(`nav-${t}`).classList.remove('text-indigo-600');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById(`nav-${t}`).classList.add('text-slate-400');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById(`tab-${tabName}`).classList.remove('hide');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById(`nav-${tabName}`).classList.add('text-indigo-600');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById(`nav-${tabName}`).classList.remove('text-slate-400');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function openSubscription() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.location.href = STRIPE_CHECKOUT_URL;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>async function saveJournal(e) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>e.preventDefault();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const entry = {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>email: document.getElementById('j-email').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>date: document.getElementById('j-date').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>mood: document.getElementById('j-mood').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>screen_time: document.getElementById('j-screen').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>play_time: document.getElementById('j-play').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>interest: document.getElementById('j-interest').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tantrum: document.getElementById('j-tantrum').value,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>repair: document.getElementById('j-repair').value</p>
+<p class="p1"><span class="Apple-converted-space">      </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (supabaseClient) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const { error } = await supabaseClient.from('journal_entries').insert([entry]);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (error) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>alert('Error saving report: ' + error.message);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert('Daily report successfully saved!');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.getElementById('journal-form').reset();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
